@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+
+<title>Popup Tooltip</title>
+
+<link rel="shortcut icon" href="favicon.ico" />
+<!--
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+-->
+
+
+<!-- link to JQuery 1.10.2 -->
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+
+<script src="jquery.popuptooltip.js"></script>
+<link rel="stylesheet" href="style.css">
+
+
+
+<script>
+$(function() {
+	$('#top').popupTooltip('top','Click to turn Premium Features on & off.');
+	$('#right').popupTooltip('right','Click the Nickname to edit the name and address');
+	$('#bottom').popupTooltip('bottom','Use your Always Free Tasks Here');
+	$('#left').popupTooltip('left','Upgrade to a Premier Membership');
+
+	$('.more').bind('click', function() {
+		$('#top').popupTooltip('top','Click to turn Premium Features on & off.');
+	})
+});
+</script>
+
+<style>
+body {font-family: Arial}
+.target{
+	margin:0 20px;
+	padding: 5px;
+	width: 60px;
+	display: inline-block;
+	border: 1px solid #999;
+	border-radius: 5px;
+}
+.more {text-align: center;}
+.more code {padding: 10px; border: 1px solid #999;}
+.more code:hover {
+	cursor:pointer;
+	background-color: #f3f4d7;
+}
+</style>
+
+</head>
+<body>
+
+	<div style="text-align: center; margin: 100px 0;">
+		<span id="left" class="target">Left</span>
+		<span id="top" class="target">Top</span>
+		<span id="bottom" class="target">Bottom</span>
+		<span id="right" class="target">Right</span>
+	</div>
+
+	<div class="more">
+		<code>$('#top').popupTooltip('top','Click to turn Premium Features on & off.');</code>
+	</div>
+
+</body>
+</html>
