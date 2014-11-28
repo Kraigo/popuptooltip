@@ -19,5 +19,5 @@ Need JQuery http://jquery.com/download/
 ```javascript
 $('#top').popupTooltip('top','Click to turn Premium Features on & off.');
 ```
-- **First argument** - Side ('left', 'right', 'bottom', 'top');
+- **First argument** - Side ('left', 'right', 'bottom', 'top', 'top-left', 'top-right', 'right-top', 'right-bottom', 'bottom-left', 'bottom-right', 'left-top', 'left-bottom');
 - **Second argument** - Content text;
