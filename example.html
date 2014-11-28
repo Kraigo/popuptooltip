@@ -16,54 +16,73 @@
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 
 <script src="jquery.popuptooltip.js"></script>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="jquery.popuptooltip.css">
 
 
 
 <script>
 $(function() {
-	$('#top').popupTooltip('top','Click to turn Premium Features on & off.');
-	$('#right').popupTooltip('right','Click the Nickname to edit the name and address');
-	$('#bottom').popupTooltip('bottom','Use your Always Free Tasks Here');
-	$('#left').popupTooltip('left','Upgrade to a Premier Membership');
+	$('#start').popupTooltip( 'top-right' , 'Choose your side of tooltip :)');
 
-	$('.more').bind('click', function() {
-		$('#top').popupTooltip('top','Click to turn Premium Features on & off.');
-	})
+	$('#side').bind('change', function() {
+		var text = $('#source').val().replace("{side}", $(this).val());
+
+		$('.popupTooltip').trigger('hide');
+		$('#element').popupTooltip( $(this).val() , text);
+
+
+		$('#element select option[selected="selected"]').prop('selected', false);
+		$("#element select option:first").prop('selected', true);
+	});
 });
 </script>
 
 <style>
 body {font-family: Arial}
-.target{
+#element {
 	margin:0 20px;
-	padding: 5px;
-	width: 60px;
+	padding: 30px;
 	display: inline-block;
 	border: 1px solid #999;
 	border-radius: 5px;
+	width: 220px;
 }
-.more {text-align: center;}
-.more code {padding: 10px; border: 1px solid #999;}
-.more code:hover {
-	cursor:pointer;
-	background-color: #f3f4d7;
+#side, #source {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width:100%;
+	padding: 5px;
 }
+#source { margin-top:10px; resize: none; }
+
 </style>
 
 </head>
 <body>
 
-	<div style="text-align: center; margin: 100px 0;">
-		<span id="left" class="target">Left</span>
-		<span id="top" class="target">Top</span>
-		<span id="bottom" class="target">Bottom</span>
-		<span id="right" class="target">Right</span>
-	</div>
-
-	<div class="more">
-		<code>$('#top').popupTooltip('top','Click to turn Premium Features on & off.');</code>
-	</div>
+<div style="text-align: center; margin: 150px 0;">
+	<span id="element">
+		<div id="start">
+			<select id="side">
+				<option value="" disabled selected>Select side</option>
+				<option value="top">Top</option>
+				<option value="top-left">Top-Left</option>
+				<option value="top-right">Top-Right</option>
+				<option value="right">Right</option>
+				<option value="right-top">Right-Top</option>
+				<option value="right-bottom">Right-Bottom</option>
+				<option value="bottom">Bottom</option>
+				<option value="bottom-left">Bottom-Left</option>
+				<option value="bottom-right">Bottom-Right</option>
+				<option value="left">Left</option>
+				<option value="left-top">Left-Top</option>
+				<option value="left-bottom">Left-Bottom</option>
+			</select>
+		</div>
+		<textarea id="source" rows="5">This is content text of popup tooltip with side {side}</textarea>
+	</span>
+</div>
 
 </body>
 </html>

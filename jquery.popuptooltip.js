@@ -9,9 +9,9 @@
 				.addClass('side-'+side)
 				.text(text)
 				.hide()
-                .bind('click', function () {
-                    return false;
-	            });
+				.bind('click', function () {
+					return false;
+				});
 
 		var $_close = $('<span>')
 					.addClass('popupTooltip-close')
@@ -19,7 +19,6 @@
 					    closePopup()
 					    return false;
 					});
-	                
 
 		$_popup.append($_close);
 		$_elm.append($_popup);
@@ -37,6 +36,10 @@
 				$_popup.remove();
 			});
 		}
+
+		$_elm.on('hide', function() {
+			closePopup();
+		})
 
 	};
 })(jQuery);
